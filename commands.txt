@@ -64,26 +64,4 @@ ALTER TABLE properties DROP COLUMN type;
 touch element.sh 
 chmod +x element.sh  
 
-#!/bin/bash
-PSQL="psql --username=freecodecamp --dbname=periodic_table --tuples-only -c"
-
-if [[ -z $1 ]]
-then
-  echo Please provide an element as an argument.
-else
-  if [[ $1 == "^[0-9]+$" ]]
-  then
-    echo a
-  fi
-  if [[ $1 == "^[A-Z][a-z]$" ]]
-  then
-    echo a
-  fi
-  if [[ $1 == "^[A-Z][a-z]+$" ]]
-  then
-    echo a
-  fi
-fi
-
-
 SELECT * FROM PROPERTIES FULL JOIN types USING(type_id) FULL JOIN elements USING(atomic_number) WHERE atomic_number=1;
